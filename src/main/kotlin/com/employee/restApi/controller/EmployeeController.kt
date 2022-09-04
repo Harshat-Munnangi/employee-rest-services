@@ -29,6 +29,6 @@ class EmployeeController(private val employeeDAO: EmployeeDAO) {
     fun deleteById(@PathVariable("id") id: String): ResponseEntity<*> {
         val isDeleted = employeeDAO.deleteById(id)
         return if (isDeleted) ok("Employee deleted successfully!")
-        else ResponseEntity.noContent().build<String>()
+        else ResponseEntity.notFound().build<String>()
     }
 }
